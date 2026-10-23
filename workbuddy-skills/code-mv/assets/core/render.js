@@ -17,7 +17,6 @@ export function warnOnce(key, msg) {
   warned.add(key);
   console.warn('[code-mv] ' + msg);
 }
-
 // Bayer 4×4：抖动阈值表（0..1）
 const BAYER = [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5];
 export const bayer = (x, y) => BAYER[((y & 3) << 2) | (x & 3)] / 16;
@@ -274,4 +273,3 @@ export class Pan {
   dissolveDark(r) { this.fb.dissolveDark(r); return this; }
   present(ctx, scale) { this.fb.present(ctx, scale); }
 }
-
