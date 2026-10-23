@@ -56,6 +56,16 @@ No video generation, no stock footage.
 
 Two ways in; the skill is the easiest.
 
+### One-command Windows setup (this fork)
+
+Windows uses WSL. Run this command in PowerShell to install Node.js 22, ffmpeg, the Python environment, project dependencies and Claude Code inside WSL, then launch the project:
+
+```powershell
+irm https://raw.githubusercontent.com/xiaox1230/lemo-opuscar/main/setup-windows.ps1 | iex
+```
+
+Windows may request a restart the first time it enables WSL. After restarting, run the same command again. Claude Code will ask you to sign in when it starts. To inspect the installer before running it, clone this repository and run `.\setup-windows.ps1` locally instead.
+
 ### Option 1: install the skill (recommended)
 
 In your terminal:

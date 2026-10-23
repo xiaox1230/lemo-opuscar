@@ -55,6 +55,30 @@
 
 两种用法，推荐装 skill，最省事。
 
+### Windows 一键安装（本 Fork）
+
+Windows 需要 WSL。在 PowerShell 中运行下面这一条命令，它会安装 WSL 内的 Node.js 22、ffmpeg、Python 环境、项目依赖和 Claude Code，然后启动项目：
+
+```powershell
+irm https://raw.githubusercontent.com/xiaox1230/lemo-opuscar/main/setup-windows.ps1 | iex
+```
+
+首次使用时，Windows 可能要求重启以完成 WSL 安装；重启后再次运行同一条命令即可。Claude Code 启动后会要求登录。核心依赖约占 350 MB，下载时间取决于网络。
+
+需要同时安装配音或音乐依赖时，先 clone 仓库，再运行：
+
+```powershell
+.\setup-windows.ps1 -Voice -Music
+```
+
+如果不想直接执行网络脚本，可使用可审查的两步方式：
+
+```powershell
+git clone https://github.com/xiaox1230/lemo-opuscar.git
+cd lemo-opuscar
+.\setup-windows.ps1
+```
+
 ### 方式一：装成 skill（推荐）
 
 在终端里：
