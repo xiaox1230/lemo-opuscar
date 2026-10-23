@@ -9,8 +9,8 @@
 
 <a href="https://trendshift.io/repositories/262645?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-262645" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/262645/daily?language=JavaScript" alt="lemomo-ai%2Flemo-opuscar | Trendshift" width="250" height="55"/></a>
 
-⚠️ **本插件为 Claude 专用。** 风格都是按 Claude Opus 5.5 调出来的，<br>
-其他模型适配度不高，请谨慎使用。
+⚠️ 原版风格按 Claude Opus 5.5 调校；本 Fork 另外提供已在 WorkBuddy 跑通的 `code-mv` 工作流。<br>
+其他模型能否还原相同效果取决于其代码与工具调用能力。
 
 🆕 **2026-10-22 · 新分类[「剪辑与纪实」](https://lemomo-ai.github.io/lemo-opuscar/#edit-documentary)**：8 种风格，用真实的档案、文件和数据剪成。[往下看 ↓](#剪辑与纪实)<br>
 🆕 **2026-10-22 · 新玩法[「改成你自己的风格」](#改成你自己的风格)**：改库里的风格或从空白做，存成你自己的。[往下看 ↓](#改成你自己的风格)<br>
@@ -55,17 +55,25 @@
 
 两种用法，推荐装 skill，最省事。
 
-### Windows 一键安装（本 Fork）
+### Windows + WorkBuddy 一键安装（本 Fork）
 
-Windows 需要 WSL。在 PowerShell 中运行下面这一条命令，它会安装 WSL 内的 Node.js 22、ffmpeg、Python 环境、项目依赖和 Claude Code，然后启动项目：
+这个 Fork 在 Lemo-Opuscar 之上加入了 `code-mv` 工作流：三画风样图、角色设定、逐句分镜、Canvas 逐帧渲染、字幕校验、响度处理和 MP4 自检。它不依赖 HyperFrames。
+
+先安装并启动一次 WorkBuddy，然后在 PowerShell 中运行下面这一条命令。安装器会下载本仓库，检查并安装 Git、Node.js、Python 与 ffmpeg，安装渲染依赖，把 `code-mv` skill 装进 WorkBuddy，并打开本地风格画廊：
 
 ```powershell
 irm https://raw.githubusercontent.com/xiaox1230/lemo-opuscar/main/setup-windows.ps1 | iex
 ```
 
-首次使用时，Windows 可能要求重启以完成 WSL 安装；重启后再次运行同一条命令即可。Claude Code 启动后会要求登录。核心依赖约占 350 MB，下载时间取决于网络。
+如果系统刚装完某个工具后提示当前终端尚未识别，关闭 PowerShell，再运行同一条命令即可。安装结束后重启 WorkBuddy。
 
-需要同时安装配音或音乐依赖时，先 clone 仓库，再运行：
+然后新建一个工作文件夹，把 `song.mp3` 和 `lyrics.srt`（或 `.lrc`）放进去，在 WorkBuddy 中打开该文件夹并发送：
+
+```text
+请使用 code-mv 制作这首歌的完整 MV。先分析音频和歌词，给我三种画风样图并等待选择；确认画风、角色和分镜后再渲染整片，完成自检并导出 MP4。
+```
+
+需要同时安装配音或额外音乐依赖时，先 clone 仓库，再运行：
 
 ```powershell
 .\setup-windows.ps1 -Voice -Music
@@ -77,6 +85,12 @@ irm https://raw.githubusercontent.com/xiaox1230/lemo-opuscar/main/setup-windows.
 git clone https://github.com/xiaox1230/lemo-opuscar.git
 cd lemo-opuscar
 .\setup-windows.ps1
+```
+
+以后单独启动本地风格画廊：
+
+```powershell
+.\start-gallery.ps1
 ```
 
 ### 方式一：装成 skill（推荐）

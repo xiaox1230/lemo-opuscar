@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<title>code-mv · 像素风模板</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #0d0b18; }
+  /* 画布按整数倍放大后，浏览器不要再做一次平滑 —— 否则像素边会糊 */
+  canvas { display: block; width: 100vw; height: auto; image-rendering: pixelated; }
+</style>
+</head>
+<body>
+<!-- 320 × 180 × 6 = 1920 × 1080。scale 必须是整数，present() 会校验 -->
+<canvas id="c" width="1920" height="1080"></canvas>
+<script type="module" src="./main.js"></script>
+</body>
+</html>

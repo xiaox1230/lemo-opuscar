@@ -10,8 +10,8 @@ Pick a style or make one from scratch, bring your story, and let your coding age
 
 <a href="https://trendshift.io/repositories/262645?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-262645" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/262645/daily?language=JavaScript" alt="lemomo-ai%2Flemo-opuscar | Trendshift" width="250" height="55"/></a>
 
-⚠️ **Built for Claude.** The styles are tuned for Claude Opus 5.5;<br>
-other models may not reproduce them well, so use them with care.
+⚠️ The original styles are tuned for Claude Opus 5.5. This fork also ships a `code-mv` workflow tested in WorkBuddy.<br>
+Results with other models depend on their coding and tool-use capabilities.
 
 🆕 **2026-10-22 · [Edit & Documentary](https://lemomo-ai.github.io/lemo-opuscar/#edit-documentary)**: 8 styles cut from real footage, documents and data. [See them ↓](#edit--documentary)<br>
 🆕 **2026-10-22 · [Make a style your own](#make-a-style-your-own)**: change a style or start blank, and keep it. [See how ↓](#make-a-style-your-own)<br>
@@ -56,15 +56,17 @@ No video generation, no stock footage.
 
 Two ways in; the skill is the easiest.
 
-### One-command Windows setup (this fork)
+### One-command Windows + WorkBuddy setup (this fork)
 
-Windows uses WSL. Run this command in PowerShell to install Node.js 22, ffmpeg, the Python environment, project dependencies and Claude Code inside WSL, then launch the project:
+This fork adds the `code-mv` workflow on top of Lemo-Opuscar: three style studies, character approval, lyric-driven storyboards, deterministic Canvas rendering, subtitle and loudness checks, and MP4 delivery. It does not depend on HyperFrames.
+
+Install and launch WorkBuddy once, then run this in PowerShell. It installs the required system tools when missing, installs the renderer, copies the `code-mv` skill into WorkBuddy, and opens the local style gallery:
 
 ```powershell
 irm https://raw.githubusercontent.com/xiaox1230/lemo-opuscar/main/setup-windows.ps1 | iex
 ```
 
-Windows may request a restart the first time it enables WSL. After restarting, run the same command again. Claude Code will ask you to sign in when it starts. To inspect the installer before running it, clone this repository and run `.\setup-windows.ps1` locally instead.
+Restart WorkBuddy after setup. Put an audio file and `.srt` or `.lrc` lyrics in a new project folder, open that folder in WorkBuddy, and ask it to use `code-mv` to make the complete music video. To inspect the installer first, clone this repository and run `.\setup-windows.ps1` locally.
 
 ### Option 1: install the skill (recommended)
 
